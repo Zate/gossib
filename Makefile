@@ -2,7 +2,7 @@
 include .makerc
 export $(shell sed 's/=.*//' .makerc)
 
-NAME=elsa-cli
+NAME=gossib
 VERSION=0.0.1
 BUILD_DATE=$(shell date)
 BUILD_PATH=$(shell pwd)/build
@@ -48,9 +48,9 @@ install:
 	@install -d -m 755 '/usr/local/bin/'
 
     ifeq ($(shell uname -p), x86_64)
-		install $(OUTPUT)-x64 '/usr/local/bin/ecp'
+		install $(OUTPUT)-x64 '/usr/local/bin/gossib'
 	else
-		install $(OUTPUT)-x86 '/usr/local/bin/ecp'
+		install $(OUTPUT)-x86 '/usr/local/bin/gossib'
     endif
 
 release: dist remove-current-release
@@ -60,7 +60,7 @@ release: dist remove-current-release
 	comparison="$$latest_tag..HEAD"; \
 	if [ -z "$$latest_tag" ]; then comparison=""; fi; \
 	changelog=$$(git log $$comparison --oneline --no-merges); \
-	github-release elsacp/$(NAME) v$(VERSION) "$$(git rev-parse --abbrev-ref HEAD)" "**Changelog**<br/>$$changelog" 'dist/*'; \
+	github-release gossib/$(NAME) v$(VERSION) "$$(git rev-parse --abbrev-ref HEAD)" "**Changelog**<br/>$$changelog" 'dist/*'; \
 	git pull
 
 pre-release: dist remove-current-release
