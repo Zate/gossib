@@ -8,7 +8,7 @@ import (
 // This variables generated during build
 const (
 	VERSION    = "0.0.1"
-	BUILD_DATE = "Tue Feb 12 00:41:51 STD 2019"
+	BUILD_DATE = "Tue Feb 12 00:45:52 STD 2019"
 	BUILD_ARCH = ""
 )
 
